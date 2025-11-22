@@ -60,7 +60,7 @@
     color: hsl(27, 100%, 50%);
 }
 
-#current-page {
+#current-page, .Pages li a:active {
     color: hsl(27, 100%, 65%);
 }
 
@@ -80,7 +80,7 @@
         top: 0;
         right: -100%;
         flex-direction: column; 
-        width: 60vw;
+        width: 55vw;
         height: 100vh;
         background-color: #000;
         z-index: 1000;
@@ -105,5 +105,11 @@
 
     .Pages li {
         margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .Pages li a {
+        font-size: 19px;
+        padding: 0 9px;
     }
 }
