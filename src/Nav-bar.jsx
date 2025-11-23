@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import './Nav-bar.css'
 
-function NavigationBar() {
+function NavigationBar({ home='current-page', skills='unselected', experience='unselected', projects='unselected' }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return(
@@ -24,10 +24,10 @@ function NavigationBar() {
                         <svg xmlns="http://www.w3.org/2000/svg" height="38px" viewBox="0 -960 960 960" width="38px" fill="hsl(27, 100%, 50%)"><path d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"/></svg>
                     </button>
                 </li>
-                <li><Link to="/" id='current-page'>Home</Link></li>
-                <li><Link to="/skills">Skills</Link></li>
-                <li><Link to="/experience">Experience</Link></li>
-                <li><Link to="/projects">Projects</Link></li>
+                <li><Link to="/" id={home}>Home</Link></li>
+                <li><Link to="/skills" id={skills}>Skills</Link></li>
+                <li><Link to="/experience" id={experience}>Experience</Link></li>
+                <li><Link to="/projects" id={projects}>Projects</Link></li>
             </ul>
         </nav>
     );
