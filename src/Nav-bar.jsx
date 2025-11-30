@@ -8,7 +8,7 @@ function NavigationBar({ home='current-page', skills='unselected', experience='u
     return(
         <nav className='Navigation-bar'>
             <div className="Logo">
-                <img src="src/assets/my logo.png" alt="My logo" />
+                <img src="src/assets/my logo.png" alt="My logo image" />
                 <p>DEV-404</p>
             </div>
 
