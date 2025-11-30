@@ -1,0 +1,208 @@
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFF;
+    padding: 130px 8vw calc(145px + 2.72vw);
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-color: hsla(0, 0%, 0%, 0.5);
+}
+
+.introduction {
+    position: relative;
+}
+
+.introduction::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-53%, -52%);
+    z-index: -1;
+    width: 130%;
+    height: 160%;
+    border-radius: 100%;
+    background-image: radial-gradient(rgba(255,114,0,1.00) 0%,rgba(133,111,14,0.00) 60%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 45%;
+    filter: blur(100px);
+}
+
+.introduction h1 {
+    font-size: calc(2.25em + 1.96vw);
+    font-weight: 1000;
+    letter-spacing: -2px;
+}
+
+.highlight {
+    background-image: radial-gradient(#ffb87f 5%,#ff5c0a 50%,#ffb87f 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    color: #ff5c0a;
+}
+
+.introduction h2 {
+    font-size: calc(1.45em + 1.2vw);
+    font-weight: 1000;
+    margin-top: -6px;
+}
+
+.introduction p {
+    width: calc(276px + 14.81vw);
+    font-size: calc(0.9em + 0.4vw);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin: 37px 0 57px;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: false;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+.cta-btn {
+    position: relative;
+    width: calc(176px + 8vw);
+    aspect-ratio: 3.65/1;
+    font-size: calc(1.3em + 0.7778vw);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #FF8F33;
+    border: none;
+    border-radius: calc(8px + 0.488vw);
+    background-color: #000;
+    box-shadow: 0 0 75px hsla(27, 100%, 55%, 0.4);
+    transition: color 0.4s ease;
+}
+
+.cta-btn::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: calc(3px + 0.24vw);
+    animation: 3s spin linear infinite;
+    border-radius: inherit;
+    background-image: conic-gradient(from var(--angle), #ff5500 0%,#ffd000 25%,#ff5500 50%,#ffd000 75%,#ff5500 100%);
+    mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+.cta-btn:hover {
+    color: #ffd000;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  margin-right: 4vw;
+  overflow: visible;
+}
+
+.bgImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, width;
+  z-index: 0;
+}
+
+.logo {
+  position: relative;
+  width: calc(200px + 15vw);
+  height: calc(200px + 15vw);
+  border-radius: 50%;
+}
+
+
+@media (661px <= width <= 800px) {
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .introduction {
+        width: 59.8%;
+    }
+
+    .logo-container img {
+        width: calc(180px + 14vw);
+        height: calc(180px + 14vw);
+    }
+}
+
+@media (width <= 660px) {
+    .hero {
+        text-align: center;
+        justify-content: center;
+        /* padding-top: 148px; */
+    }
+
+    .introduction h1 {
+        font-size: calc(1.71em + 4vw);
+        letter-spacing: -1px;
+    }
+
+    .introduction h2 {
+        font-size: calc(1.11em + 2.5vw);
+        margin-top: 0px;
+    }
+
+    .introduction p {
+        width: calc(230px + 29vw);
+    }
+
+    .cta-btn {
+        width: calc(159px + 12vw);
+    }
+
+    .logo, .introduction::before {
+        display: none;
+    }
+
+    .hero::before {
+        background-color: hsla(0, 0%, 0%, 0.7);
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('./assets/bg-image.jpg');
+        background-size: calc(200% + 1250px);
+        background-repeat: no-repeat;
+        background-position: 75% center;
+        z-index: -3;
+    }
+}
